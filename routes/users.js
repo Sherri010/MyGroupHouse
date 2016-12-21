@@ -52,7 +52,7 @@ router.post('/signup', function(req, res){
 
 		req.flash('success_msg', 'You are registered and can now login');
 
-		res.redirect('/users/login');
+		res.redirect('/users/signup');
 	}
 });
 
@@ -61,15 +61,18 @@ passport.use(new LocalStrategy(
    User.getUserByUsername(username, function(err, user){
    	if(err) throw err;
    	if(!user){
+			console.log("user not found",username);
    		return done(null, false, {message: 'Unknown User'});
    	}
 
    	User.comparePassword(password, user.password, function(err, isMatch){
    		if(err) throw err;
    		if(isMatch){
+				console.log("success login")
    			return done(null, user);
    		} else {
    			return done(null, false, {message: 'Invalid password'});
+				console.log("failed login")
    		}
    	});
    });
@@ -86,7 +89,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
+  passport.authenticate('local', {successRedirect:'/users/signup', failureRedirect:'/users/login',failureFlash: true}),
   function(req, res) {
     res.redirect('/');
   });
