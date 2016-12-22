@@ -23,12 +23,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
 app.set('view engine', 'handlebars');
 
-// BodyParser Middleware
+// BodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Set Static Folder
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Express Session
@@ -78,7 +78,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 // Set Port
-app.set('port', (process.env.PORT || 3000));
+app.set('port', 3000);
 
 app.listen(app.get('port'), function(){
 	console.log('Server started on port '+app.get('port'));
