@@ -2,6 +2,9 @@
 var express = require('express');
 var router = express.Router();
 
+
+var Event = require('../models/event');
+
 // Get Homepage
 router.get('/',  function(req, res){
 	res.render('index');
