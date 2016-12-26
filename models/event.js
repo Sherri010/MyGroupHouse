@@ -20,5 +20,9 @@ var EventSchema = mongoose.Schema({
 
 var Event = module.exports = mongoose.model('Event', EventSchema);
 
+
+Event.remove({}, function(err) {
+   console.log('Event table clear!')
+});;
 var n1 = new Event({organizer:"585abf8475316457ddf9fb5c",email:"farsh@gmail.com",name:"Eve baunch event",disc:"so much fun!"})
 n1.save();

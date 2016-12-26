@@ -11,9 +11,8 @@ router.get('/',  function(req, res){
 });
 
 router.get('/event-board',ensureAuthenticated,function(req,res){
-
+ console.log("Request by: ",req.user.name);
 	Event.find({}, function(err, events) {
-	    console.log("event list",events);
 				res.render('board',{events:events});
 	 });
 
