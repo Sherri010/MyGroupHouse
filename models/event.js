@@ -20,9 +20,3 @@ var EventSchema = mongoose.Schema({
 });
 
 var Event = module.exports = mongoose.model('Event', EventSchema);
-
-
-// var alex = new Event({
-//     name: "Alex's dinner"
-// });
-// alex.save();
