@@ -2,13 +2,20 @@
 var express = require('express');
 var router = express.Router();
 
+
+var Event = require('../models/event');
+
 // Get Homepage
 router.get('/',  function(req, res){
 	res.render('index');
 });
 
 router.get('/event-board',ensureAuthenticated,function(req,res){
-	res.render('board');
+ console.log("Request by: ",req.user.name);
+	Event.find({}, function(err, events) {
+				res.render('board',{events:events});
+	 });
+
 });
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
