@@ -3,8 +3,7 @@ var mongoose = require('mongoose');
 // User Schema
 var EventSchema = mongoose.Schema({
 	 organizer: {
-		type: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	},
+		type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	date: {
 		type: Date
 	},
@@ -20,3 +19,6 @@ var EventSchema = mongoose.Schema({
 });
 
 var Event = module.exports = mongoose.model('Event', EventSchema);
+
+var n1 = new Event({organizer:"585abf8475316457ddf9fb5c",email:"farsh@gmail.com",name:"Eve baunch event",disc:"so much fun!"})
+n1.save();
