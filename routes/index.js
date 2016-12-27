@@ -17,6 +17,27 @@ router.get('/event-board',ensureAuthenticated,function(req,res){
 	 });
 
 });
+
+router.post('/events',ensureAuthenticated,function(req,res){
+	console.log("Created by: ",req.user.name);
+	var newEvent= new Event({
+		name:req.body.name,
+		organizer:req.user.id,
+		date:req.body.date,
+    begin:req.body.begin,
+		end:req.body.end,
+		disc:req.body.disc
+	});
+	console.log(newEvent)
+  newEvent.save(function(err,savedEvent){
+		Event.find({}, function(err, events) {
+			console.log(events)
+				res.render('board',{events:events});
+		 });
+	});
+});
+
+
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();

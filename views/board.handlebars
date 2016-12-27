@@ -1,5 +1,16 @@
-<a class="btn" href="/logout">Logout</a>
-<a class="btn" href="/logout">Create new event</a>
+<a class="btn" href="/users/logout">Logout</a>
+<a class="btn" href="#modal1">Create new event</a>
+
+
+{{#if success_msg}}
+    <p><strong>FLASH!</strong> {{ success_msg }}</p>
+{{/if}}
+
+{{#if error_msg}}
+    <div class="{{ sessionFlash.type }}">
+        <strong>FLASH!</strong> {{ error_msg }}
+    </div>
+{{/if}}
 
 <h4> Event Board </h4>
   <div class="row">
@@ -11,4 +22,37 @@
          </div>
        </div>
     {{/each}}
+   </div>
+
+
+   <!-- Modal Structure -->
+   <div id="modal1" class="modal modal-fixed-footer">
+    <form method="post" action="/events">
+     <div class="modal-content">
+       <h4>Create New Event</h4>
+         <div class="input-field col s6">
+            <input  id="first_name" name="name" type="text" class="validate">
+            <label for="first_name">Event name</label>
+          </div>
+          <div class="input-field col s6">
+            <!-- <label for="first_name">Event date</label> -->
+            <input  id="first_name" name="date" type="date" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <input  id="first_name" name="start" type="number" min="0" max="23" class="validate">
+            <label for="first_name">Starts at:</label>
+          </div>
+          <div class="input-field col s6">
+            <input  id="first_name" name="end" type="number" min="0" max="24" class="validate">
+            <label for="first_name">Ends at:</label>
+          </div>
+         <div class="input-field col s12">
+              <textarea id="textarea1" name="disc" class="materialize-textarea" length="250"></textarea>
+              <label for="textarea1">Discription:</label>
+            </div>
+       </div>
+       <div class="modal-footer">
+         <button type="submit"  name="submit" class="modal-action modal-close waves-effect waves-green btn-flat ">Create</button>
+       </div>
+   </form>
    </div>
