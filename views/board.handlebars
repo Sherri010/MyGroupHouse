@@ -1,6 +1,11 @@
 <a class="btn" href="/users/logout">Logout</a>
 <a class="btn" href="#modal1">Create new event</a>
 
+
+<div class="chip" style="float:right;margin-left:20px;">
+    {{name}}
+ </div>
+
 <h4> Event Board </h4>
 {{#unless events.length}}
   No Events planned...
@@ -37,7 +42,7 @@
             <input  id="first_name" name="date" type="date" class="validate">
           </div>
           <div class="input-field col s6">
-            <input  id="first_name" name="start" type="number" min="0" max="23" class="validate">
+            <input  id="first_name" name="begin" type="number" min="0" max="23" class="validate">
             <label for="first_name">Starts at:</label>
           </div>
           <div class="input-field col s6">
@@ -50,7 +55,7 @@
             </div>
        </div>
        <div class="modal-footer">
-         <button type="submit"  name="submit" class="modal-action modal-close waves-effect waves-green btn-flat ">Create</button>
+         <button type="submit"  class="modal-action modal-close waves-effect waves-green btn-flat ">Create</button>
        </div>
    </form>
    </div>
