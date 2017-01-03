@@ -4,7 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
-
+var Event = require('../models/event');
 // Register
 router.get('/signup', function(req, res){
 	res.render('signup');
@@ -100,4 +100,12 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
+router.get('/profiles/:id', function(req,res){
+	var userToFind = req.params.id;
+	User.findOne({ _id: userToFind }, function(err, foundUser) {
+		Event.find({organizer_id:userToFind},function(err,Events){
+	     res.render('profile',{user:foundUser, events:Events});
+		});
+	});
+})
 module.exports = router;

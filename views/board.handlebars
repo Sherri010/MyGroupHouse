@@ -3,7 +3,7 @@
 
 
 <div class="chip" style="float:right;margin-left:20px;">
-    {{name}}
+  <a href="/users/profiles/{{currentUser}}">  {{name}} </a>
  </div>
 
 <h4> Event Board </h4>
@@ -12,7 +12,6 @@
  {{/unless}}
  {{#if events.length}}
   <div class="row">
-
     {{#each events}}
        <div class="col s12 m3">
          <div class="card grey">
