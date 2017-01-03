@@ -100,4 +100,10 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
+router.get('/profiles/:id', function(req,res){
+	var userToFind = req.params.id;
+	User.findOne({ _id: userToFind }, function(err, foundUser) {
+     res.render('profile',{user:foundUser});
+	});
+})
 module.exports = router;
