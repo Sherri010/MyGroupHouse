@@ -67,6 +67,15 @@ router.post('/events/:id',ensureAuthenticated, function(req, res){
 	});
 });
 
+router.delete('/events/:id',ensureAuthenticated,function(req,res){
+	var eventToDelete = req.params.id;
+
+	 // find todo in db by id and remove
+	 Event.findOneAndRemove({ _id: eventToDelete }, function(err, event) {
+		  res.json('200');
+	 });
+});
+
 function formatDate(date){
 	var date =  new Date(date);
 	var formatedDate =  date.getUTCFullYear()+"-";
