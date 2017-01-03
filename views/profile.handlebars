@@ -1,1 +1,21 @@
-<h1> profile </h1>
+<h3> Hi {{user.name}}! </h3>
+
+{{#unless events.length}}
+  You haven't plan any events yet...
+ {{/unless}}
+ {{#if events.length}}
+  <div class="row">
+    {{#each events}}
+       <div class="col s12 m3">
+         <div class="card grey">
+           <h5>Event: {{this.name}}</h5>
+           <p> About:{{this.disc}}</p>
+           <div class="chip">
+             {{this.organizer_name}}
+             <a href='/events/{{this._id}}/edit'>Edit</a>
+           </div>
+         </div>
+       </div>
+    {{/each}}
+   </div>
+   {{/if}}
