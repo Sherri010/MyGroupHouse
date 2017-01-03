@@ -52,6 +52,20 @@ Event.findOne({ _id: eventToEdit }, function(err, foundEvent) {
 
 });
 
+router.post('/events/:id',ensureAuthenticated, function(req, res){
+	var eventToUpdate = req.params.id
+	Event.findOne({ _id: eventToUpdate }, function(err, foundEvent) {
+		foundEvent.disc = req.body.disc;
+   	foundEvent.name = req.body.name;
+		foundEvent.start = req.body.start;
+		foundEvent.end = req.body.end;
+		foundEvent.date = req.body.date;
+	// save updated todo in db
+	foundEvent.save(function(err, savedEvent) {
+	     res.redirect('/event-board')
+    	});
+	});
+});
 
 function formatDate(date){
 	var date =  new Date(date);
