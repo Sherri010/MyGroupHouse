@@ -1,0 +1,31 @@
+
+<div class="container edit-div">
+ <form method="post" action="/events/{event._id}">
+  <div class="modal-content">
+    <h4>Update Event</h4>
+      <div class="input-field col s6">
+         <input name="name" type="text" class="validate" value="{{event.name}}">
+         <label for="first_name">Event name</label>
+       </div>
+       <div class="input-field col s6">
+         <!-- <label for="first_name">Event date</label> -->
+         <input name="date" type="date" class="validate" value="{{formatDate}}">
+       </div>
+       <div class="input-field col s6">
+         <input name="start" type="number" min="0" max="23" class="validate" value="{{event.begin}}">
+         <label for="first_name">Starts at:</label>
+       </div>
+       <div class="input-field col s6">
+         <input name="end" type="number" min="0" max="24" class="validate" value="{{event.end}}">
+         <label for="first_name">Ends at:</label>
+       </div>
+      <div class="input-field col s12">
+           <textarea name="disc" class="materialize-textarea" length="250" >{{event.disc}}</textarea>
+           <label for="textarea1">Discription:</label>
+         </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit"  name="submit" class="modal-action modal-close waves-effect waves-green btn-flat ">Update Event</button>
+    </div>
+</form>
+</div>
