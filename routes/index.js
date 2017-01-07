@@ -70,10 +70,15 @@ router.post('/events/:id/rsvp',ensureAuthenticated,function(req,res){
 	 var eventToUpdate = req.params.id;
 	 console.log("rsvping to ", eventToUpdate)
 	 Event.findOne({ _id: eventToUpdate }, function(err, foundEvent) {
-	   foundEvent.rsvp.push(req.user._id)
-		 foundEvent.save(function(err, savedEvent) {
-					res.json(savedEvent.rsvp.length)
-				 });
+		 if(foundEvent.rsvp.indexOf(req.user._id) == -1){
+		   foundEvent.rsvp.push(req.user._id)
+			 foundEvent.save(function(err, savedEvent) {
+						res.json(savedEvent.rsvp.length)
+				});
+			}
+			else {
+				res.json("You have already put your name down for this :)")
+			}
 	  });
 });
 
