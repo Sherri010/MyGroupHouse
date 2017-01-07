@@ -104,7 +104,7 @@ router.get('/profiles/:id', function(req,res){
 	var userToFind = req.params.id;
 	User.findOne({ _id: userToFind }, function(err, foundUser) {
 		Event.find({organizer_id:userToFind},function(err,Events){
-	     res.render('profile',{user:foundUser, events:Events});
+	     res.render('profile',{user:foundUser, events:Events, rsvp:foundUser.rsvps});
 		});
 	});
 });

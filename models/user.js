@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
-
+var Event = require('mongoose').model('Event').schema;
 // User Schema
 var UserSchema = mongoose.Schema({
 	username: {
@@ -16,7 +16,7 @@ var UserSchema = mongoose.Schema({
 	name: {
 		type: String
 	},
-	rsvps:[{type:mongoose.Schema.Types.ObjectId, ref: 'Event'}]
+	rsvps:[Event]
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);
@@ -29,6 +29,15 @@ module.exports.createUser = function(newUser, callback){
 	    });
 	});
 }
+
+// module.exports.getRsvpedEvents = function(user,callback){
+// 	var list =[];
+// 	for(var i=0; i< user.rsvps.length ; i++){
+//      Event.findOne({_id:user.rsvps[i]},function(err,foundEvent){
+// 			 list.push(foundEvent);
+// 		 });
+// 	}
+// }
 
 module.exports.getUserByUsername = function(username, callback){
 	var query = {username: username};

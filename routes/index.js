@@ -68,13 +68,13 @@ router.post('/events/:id',ensureAuthenticated, function(req, res){
 
 router.post('/events/:id/rsvp',ensureAuthenticated,function(req,res){
 	 var eventToUpdate = req.params.id;
-   console.log("from rsvp: ",req.user)
-
+   var eventToGo;
 	 Event.findOne({ _id: eventToUpdate }, function(err, foundEvent) {
+		 eventToGo = foundEvent;
 		 if(foundEvent.rsvp.indexOf(req.user._id) == -1){
 		    foundEvent.rsvp.push(req.user._id);
 			  User.findOne({_id:req.user._id},function(err,foundUser){
-				  foundUser.rsvps.push(eventToUpdate);
+				  foundUser.rsvps.push(eventToGo);
 					foundUser.save();
 			 });
 			 foundEvent.save(function(err, savedEvent) {
