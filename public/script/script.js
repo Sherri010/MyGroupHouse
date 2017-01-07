@@ -1,5 +1,7 @@
 $(document).ready(function(){
    $('.modal').modal();
+
+   //delete's event
    $('#delete_event_id').on('click',function(event){
       event.preventDefault();
       var address= $(this).attr('href')
@@ -13,4 +15,18 @@ $(document).ready(function(){
         }
       })
    });
+
+  // rsvp
+  $('#rsvp-btn').on('click',function(event){
+    event.preventDefault();
+    var address = $(this).attr('href');
+    $.ajax({
+      type:"POST",
+      url:address,
+      success:function(data){
+        $("#rsvp-btn").siblings().html("People going: "+data)
+      }
+    });
+  })
+
 });

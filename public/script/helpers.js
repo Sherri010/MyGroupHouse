@@ -6,8 +6,11 @@ var register = function(event,user) {
         showLinks: function(event,user){
           console.log( user)
           console.log(event.organizer_id)
-           if(event.organizer_id.toString() == user.toString())
-               {  return "<a href='/events/"+event._id+"/edit'>Edit</a>"; }
+           if(event.organizer_id.toString() == user.toString()){
+                  return "<a href='/events/"+event._id+"/edit'>Edit</a>"; }
+          else {
+                  return  '<a id="rsvp-btn" href="/events/'+event._id+'/rsvp"> RSVP </a>';
+          }
         }
     };
 

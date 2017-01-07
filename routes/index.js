@@ -68,12 +68,13 @@ router.post('/events/:id',ensureAuthenticated, function(req, res){
 
 router.post('/events/:id/rsvp',ensureAuthenticated,function(req,res){
 	 var eventToUpdate = req.params.id;
+	 console.log("rsvping to ", eventToUpdate)
 	 Event.findOne({ _id: eventToUpdate }, function(err, foundEvent) {
-	   foundEvent.rsvp += req.params.rsvp;
+	   foundEvent.rsvp.push(req.user._id)
 		 foundEvent.save(function(err, savedEvent) {
-					res.redirect('/event-board')
+					res.json(savedEvent.rsvp.length)
 				 });
-	 });
+	  });
 });
 
 router.delete('/events/:id',ensureAuthenticated,function(req,res){
