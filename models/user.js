@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
-
+var Event = require('mongoose').model('Event').schema;
 // User Schema
 var UserSchema = mongoose.Schema({
 	username: {
@@ -15,7 +15,8 @@ var UserSchema = mongoose.Schema({
 	},
 	name: {
 		type: String
-	}
+	},
+	rsvps:[Event]
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);
@@ -28,6 +29,15 @@ module.exports.createUser = function(newUser, callback){
 	    });
 	});
 }
+
+// module.exports.getRsvpedEvents = function(user,callback){
+// 	var list =[];
+// 	for(var i=0; i< user.rsvps.length ; i++){
+//      Event.findOne({_id:user.rsvps[i]},function(err,foundEvent){
+// 			 list.push(foundEvent);
+// 		 });
+// 	}
+// }
 
 module.exports.getUserByUsername = function(username, callback){
 	var query = {username: username};
@@ -44,3 +54,22 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     	callback(null, isMatch);
 	});
 }
+
+
+
+User.remove({}, function(err) {
+   console.log('User table clear!')
+});
+
+//temp users
+var sherri = new User({username:"sherri010",name:"sherri",email:"sherri@gmail.com",password:"asdfgh"})
+		User.createUser(sherri, function(err, user){
+			if(err) throw err;
+			console.log(user);
+		});
+
+var farsh = new User({username:"farshmous",name:"farsh mous",email:"farsh@gmail.com",password:"asdfgh"})
+		User.createUser(farsh, function(err, user){
+			if(err) throw err;
+			console.log(user);
+		});
