@@ -32,6 +32,7 @@ router.post('/events',ensureAuthenticated,function(req,res){
 		end:req.body.end,
 		disc:req.body.disc
 	});
+	newEvent.rsvp.push(req.user._id);
   newEvent.save(function(err,savedEvent){
 		Event.find({}, function(err, events) {
 				res.render('board',{events:events,currentUser:req.user});
@@ -42,14 +43,12 @@ router.post('/events',ensureAuthenticated,function(req,res){
 
 router.get('/events/:id/edit',ensureAuthenticated,function(req,res){
 	var eventToEdit = req.params.id;
-
-Event.findOne({ _id: eventToEdit }, function(err, foundEvent) {
-	console.log(foundEvent.date)
-	 var date = foundEvent.date;
-   var formatedDate = formatDate(date);
-   res.render('edit',{event:foundEvent,formatDate:formatedDate});
-});
-
+	Event.findOne({ _id: eventToEdit }, function(err, foundEvent) {
+		console.log(foundEvent.date)
+		 var date = foundEvent.date;
+	   var formatedDate = formatDate(date);
+	   res.render('edit',{event:foundEvent,formatDate:formatedDate});
+	});
 });
 
 router.post('/events/:id',ensureAuthenticated, function(req, res){
@@ -60,17 +59,26 @@ router.post('/events/:id',ensureAuthenticated, function(req, res){
 		foundEvent.start = req.body.start;
 		foundEvent.end = req.body.end;
 		foundEvent.date = req.body.date;
-	// save updated todo in db
-	foundEvent.save(function(err, savedEvent) {
-	     res.redirect('/event-board')
-    	});
-	});
+
+		foundEvent.save(function(err, savedEvent) {
+		     res.redirect('/event-board')
+	    	});
+		});
+});
+
+router.post('/events/:id/rsvp',ensureAuthenticated,function(req,res){
+	 var eventToUpdate = req.params.id;
+	 console.log("rsvping to ", eventToUpdate)
+	 Event.findOne({ _id: eventToUpdate }, function(err, foundEvent) {
+	   foundEvent.rsvp.push(req.user._id)
+		 foundEvent.save(function(err, savedEvent) {
+					res.json(savedEvent.rsvp.length)
+				 });
+	  });
 });
 
 router.delete('/events/:id',ensureAuthenticated,function(req,res){
 	var eventToDelete = req.params.id;
-
-	 // find todo in db by id and remove
 	 Event.findOneAndRemove({ _id: eventToDelete }, function(err, event) {
 		  res.json('200');
 	 });

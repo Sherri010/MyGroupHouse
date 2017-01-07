@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
+var Schema    = mongoose.Schema;
 
-// User Schema
+
 var EventSchema = mongoose.Schema({
 	 organizer_id: {
-		type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+		type: Schema.Types.ObjectId, ref: 'User'},
 		organizer_name:{
 			type:String
 		},
@@ -21,7 +22,8 @@ var EventSchema = mongoose.Schema({
 	},
   disc:{
     type:String
-  }
+  },
+	rsvp:[{type:Schema.Types.ObjectId, ref: 'User'}]
 });
 
 var Event = module.exports = mongoose.model('Event', EventSchema);
