@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 var Event = require('../models/event');
-
+var User  = require('../models/user');
 // Get Homepage
 router.get('/',  function(req, res){
 	res.render('index');
@@ -68,10 +68,15 @@ router.post('/events/:id',ensureAuthenticated, function(req, res){
 
 router.post('/events/:id/rsvp',ensureAuthenticated,function(req,res){
 	 var eventToUpdate = req.params.id;
-	 console.log("rsvping to ", eventToUpdate)
+   console.log("from rsvp: ",req.user)
+
 	 Event.findOne({ _id: eventToUpdate }, function(err, foundEvent) {
 		 if(foundEvent.rsvp.indexOf(req.user._id) == -1){
-		   foundEvent.rsvp.push(req.user._id)
+		    foundEvent.rsvp.push(req.user._id);
+			  User.findOne({_id:req.user._id},function(err,foundUser){
+				  foundUser.rsvps.push(eventToUpdate);
+					foundUser.save();
+			 });
 			 foundEvent.save(function(err, savedEvent) {
 						res.json(savedEvent.rsvp.length)
 				});

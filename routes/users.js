@@ -107,5 +107,5 @@ router.get('/profiles/:id', function(req,res){
 	     res.render('profile',{user:foundUser, events:Events});
 		});
 	});
-})
+});
 module.exports = router;
