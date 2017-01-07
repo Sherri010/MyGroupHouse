@@ -1,6 +1,5 @@
 $(document).ready(function(){
    $('.modal').modal();
-
    $('#delete_event_id').on('click',function(event){
       event.preventDefault();
       var address= $(this).attr('href')
@@ -14,8 +13,4 @@ $(document).ready(function(){
         }
       })
    });
-
-   $('#go-back').on('click',function(event){
-     window.history.back();
-   });
- });
+});
