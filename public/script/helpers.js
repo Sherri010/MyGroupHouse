@@ -9,7 +9,7 @@ var register = function(event,user) {
            if(event.organizer_id.toString() == user.toString()){
                   return "<a href='/events/"+event._id+"/edit'>Edit</a>"; }
           else {
-                  return  '<a id="rsvp-btn" href="/events/'+event._id+'/rsvp"> RSVP </a>';
+                  return  '<a class="rsvp-btn" href="/events/'+event._id+'/rsvp"> RSVP </a>';
           }
         }
     };

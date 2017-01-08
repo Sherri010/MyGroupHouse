@@ -17,14 +17,15 @@ $(document).ready(function(){
    });
 
   // rsvp
-  $('#rsvp-btn').on('click',function(event){
+  $('.rsvp-btn').on('click',function(event){
     event.preventDefault();
-    var address = $(this).attr('href');
+    var eventToRsvp = $(event.target);
+    var address = eventToRsvp.attr('href');
     $.ajax({
       type:"POST",
       url:address,
       success:function(data){
-        $("#rsvp-btn").siblings().html("People going: "+data)
+        eventToRsvp.siblings().html("People going: "+data)
       }
     });
   })
