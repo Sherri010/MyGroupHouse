@@ -3,16 +3,14 @@
 		<a href="#!" class="brand-logo">ShareIn</a>
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down">
-		 <li><a href="sass.html"></a></li>
-		 <li><a href="badges.html">Components</a></li>
-		 <li><a href="collapsible.html">Javascript</a></li>
-		 <li><a href="mobile.html">Mobile</a></li>
+      <li><a  href="#modal1">Create new event</a></li>
+			<li><a href="/event-board">  Event Board </a></li>
+			<li><a href="/users/logout">Logout</a></li>
 	 </ul>
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="sass.html">Sass</a></li>
-			<li><a href="badges.html">Components</a></li>
-			<li><a href="collapsible.html">Javascript</a></li>
-			<li><a href="mobile.html">Mobile</a></li>
+      <li><a  href="#modal1">Create new event</a></li>
+			<li><a href="/users/profiles/{{currentUser}}"> Your Board </a></li>
+			<li><a href="/users/logout">Logout</a></li>
 		</ul>
 	</div>
 </nav>
@@ -38,3 +36,34 @@
     {{/each}}
    </div>
    {{/if}}
+   <!-- create Modal -->
+   <div id="modal1" class="modal modal-fixed-footer">
+    <form method="post" action="/events">
+     <div class="modal-content">
+       <h4>Create New Event</h4>
+         <div class="input-field col s6">
+            <input  id="first_name" name="name" type="text" class="validate">
+            <label for="first_name">Event name</label>
+          </div>
+          <div class="input-field col s6">
+            <!-- <label for="first_name">Event date</label> -->
+            <input  id="first_name" name="date" type="date" class="validate">
+          </div>
+          <div class="input-field col s6">
+            <input  id="first_name" name="begin" type="number" min="0" max="23" class="validate">
+            <label for="first_name">Starts at:</label>
+          </div>
+          <div class="input-field col s6">
+            <input  id="first_name" name="end" type="number" min="0" max="24" class="validate">
+            <label for="first_name">Ends at:</label>
+          </div>
+         <div class="input-field col s12">
+              <textarea id="textarea1" name="disc" class="materialize-textarea" length="250"></textarea>
+              <label for="textarea1">Discription:</label>
+            </div>
+       </div>
+       <div class="modal-footer">
+         <button type="submit"  class="modal-action modal-close waves-effect waves-green btn-flat ">Create</button>
+       </div>
+   </form>
+   </div>

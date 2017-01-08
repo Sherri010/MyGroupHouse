@@ -3,20 +3,17 @@
 		<a href="#!" class="brand-logo">ShareIn</a>
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down">
-		 <li><a href="sass.html"></a></li>
-		 <li><a href="badges.html">Components</a></li>
-		 <li><a href="collapsible.html">Javascript</a></li>
-		 <li><a href="mobile.html">Mobile</a></li>
+      <li><a  href="/event-board">Event Board</a></li>
+			<li><a href="/users/profiles/{{currentUser}}"> My Board </a></li>
+			<li><a href="/users/logout">Logout</a></li>
 	 </ul>
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="sass.html">Sass</a></li>
-			<li><a href="badges.html">Components</a></li>
-			<li><a href="collapsible.html">Javascript</a></li>
-			<li><a href="mobile.html">Mobile</a></li>
+      <li><a  href="#" id="go-back">Back to Event Board</a></li>
+			<li><a href="/users/profiles/{{currentUser}}"> Your Board </a></li>
+			<li><a href="/users/logout">Logout</a></li>
 		</ul>
 	</div>
 </nav>
-<button class="waves-effect waves-green btn-flat" id="go-back">go back</button>
 <div class="container edit-div">
  <form name="edit-form" method="post" action="/events/{{event._id}}">
   <div class="modal-content">

@@ -47,7 +47,7 @@ router.get('/events/:id/edit',ensureAuthenticated,function(req,res){
 		console.log(foundEvent.date)
 		 var date = foundEvent.date;
 	   var formatedDate = formatDate(date);
-	   res.render('edit',{event:foundEvent,formatDate:formatedDate});
+	   res.render('edit',{event:foundEvent,formatDate:formatedDate,currentUser:req.user._id});
 	});
 });
 
