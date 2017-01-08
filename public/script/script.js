@@ -1,6 +1,9 @@
 $(document).ready(function(){
+   $(".button-collapse").sideNav();
    $('.modal').modal();
-
+   $('#go-back').on('click',function(){
+     window.history.back();
+   });
    //delete's event
    $('#delete_event_id').on('click',function(event){
       event.preventDefault();

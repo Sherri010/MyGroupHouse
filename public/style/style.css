@@ -1,7 +1,23 @@
+body{
+  background: #D4D6D8;
+  font-family: 'Dosis', sans-serif;
+  font-size:18px;
+}
+nav {
+  background: #3E2640;
+}
+.brand-logo{
+  margin-left:10px;
+}
+.logo{
+  color:#3E2640;
+  padding:0px 20px 100px 20px;;
+}
 .wrapper{
   text-align: center;
   margin:0 auto;
   padding:200px;
+  padding-top:100px;
 }
 .small{
   width:40%;
@@ -18,4 +34,9 @@
 .edit-div{
    width:30%;
    margin: 0 auto;
+}
+@media (max-width: 500px) {
+  .small {
+    width:80%;
+  }
 }
