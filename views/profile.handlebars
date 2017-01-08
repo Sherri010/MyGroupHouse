@@ -1,7 +1,8 @@
 <a href="/event-board"> Go back to event board </a>
 <h3> Hi {{user.name}}! </h3>
-
-<h4> Your Events </h4>
+<div class="row">
+   <div class="col m6">
+<h4> You Organized: </h4>
 {{#unless events.length}}
   You haven't plan any events yet...
  {{/unless}}
@@ -21,6 +22,18 @@
     {{/each}}
    </div>
    {{/if}}
-
-<h4> Your RSVPs </h4>
-{{rsvp}}
+</div>
+   <div class="col m6">
+<h4> You're Going: </h4>
+<div class="row">
+{{#each rsvp}}
+<div class="col s12 m3">
+  <div class="card grey">
+  <h5>{{this.name}}</h5>
+  <p>{{this.date}}</p>
+</div>
+</div>
+{{/each}}
+</div>
+</div>
+</div>

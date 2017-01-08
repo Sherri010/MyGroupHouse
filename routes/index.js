@@ -44,7 +44,6 @@ router.post('/events',ensureAuthenticated,function(req,res){
 router.get('/events/:id/edit',ensureAuthenticated,function(req,res){
 	var eventToEdit = req.params.id;
 	Event.findOne({ _id: eventToEdit }, function(err, foundEvent) {
-		console.log(foundEvent.date)
 		 var date = foundEvent.date;
 	   var formatedDate = formatDate(date);
 	   res.render('edit',{event:foundEvent,formatDate:formatedDate});
