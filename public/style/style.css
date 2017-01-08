@@ -5,6 +5,14 @@ body{
 }
 nav {
   background: #3E2640;
+  -webkit-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+}
+.btn1 {
+  background: #833B3F;
+  color:#fff;
+  padding:5px 20px;
 }
 .brand-logo{
   margin-left:10px;
@@ -24,6 +32,9 @@ nav {
   width:30%;
   background: #E7DDD8;
   border-radius: 3px;
+  -webkit-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
 }
 .login-page{
   width:100%;
@@ -48,7 +59,10 @@ nav {
    width:30%;
    margin: 0 auto;
 }
-
+.main-cntrl{
+  height:200px;
+  background: #E7DDD8;
+}
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #3E2640;
