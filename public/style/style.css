@@ -11,18 +11,31 @@ nav {
 }
 .logo{
   color:#3E2640;
+  font-weight: bolder;
   padding:0px 20px 100px 20px;;
 }
 .wrapper{
   text-align: center;
   margin:0 auto;
-  padding:200px;
-  padding-top:100px;
+  padding:70px;
+  padding-top:70px;
 }
 .small{
-  width:40%;
+  width:30%;
+  background: #E7DDD8;
+  border-radius: 3px;
 }
-
+.login-page{
+  width:100%;
+  height:100vh;
+  background: url('../sharein.png') no-repeat;
+  background-size:cover;
+  background-position: center;
+  padding:100px;
+}
+.option{
+  padding:50px;
+}
 .m3 {
   min-height: 100px;
 }
@@ -35,6 +48,22 @@ nav {
    width:30%;
    margin: 0 auto;
 }
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #3E2640;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #3E2640;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #3E2640;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #3E2640;
+}
+
+
 @media (max-width: 500px) {
   .small {
     width:80%;
