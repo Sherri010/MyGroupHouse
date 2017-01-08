@@ -30,15 +30,6 @@ module.exports.createUser = function(newUser, callback){
 	});
 }
 
-// module.exports.getRsvpedEvents = function(user,callback){
-// 	var list =[];
-// 	for(var i=0; i< user.rsvps.length ; i++){
-//      Event.findOne({_id:user.rsvps[i]},function(err,foundEvent){
-// 			 list.push(foundEvent);
-// 		 });
-// 	}
-// }
-
 module.exports.getUserByUsername = function(username, callback){
 	var query = {username: username};
 	User.findOne(query, callback);
