@@ -7,9 +7,9 @@ var register = function(event,user) {
           console.log( user)
           console.log(event.organizer_id)
            if(event.organizer_id.toString() == user.toString()){
-                  return "<a href='/events/"+event._id+"/edit'>Edit</a>"; }
+                  return "<a href='/events/"+event._id+"/edit'><i class='fa fa-pencil-square-o' aria-hidden='true'></i>Edit</a>"; }
           else {
-                  return  '<a id="rsvp-btn" href="/events/'+event._id+'/rsvp"><i class="fa fa-heart-o" aria-hidden="true"></i> RSVP</a>';
+                  return  '<a class="rsvp-btn" href="/events/'+event._id+'/rsvp"><i class="fa fa-heart-o" aria-hidden="true"></i> RSVP</a>';
           }
         }
     };

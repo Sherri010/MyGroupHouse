@@ -9,6 +9,12 @@ nav {
 -moz-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
 box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
 }
+
+hr{
+   border:none;
+   border-top: 3px solid #827287;
+   width:80%;
+}
 .btn1 {
   background: #833B3F;
   color:#fff;
@@ -79,8 +85,26 @@ box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
   text-align: center;
   margin:0 auto;
   padding-left:50px;
-  padding-top:50px;
-  padding-bottom:10px;
+  padding-right:25px;
+  padding-top:30px;
+}
+.main-board{
+  text-align: center;
+  color:#3E2640;
+  font-size:35px;
+  margin-top:0px;
+  padding-top:30px;
+}
+.card {
+  background: #CEB5D6;
+  padding:40px;
+}
+.event-info{
+  font-size:0.8em;
+  padding:5px;
+}
+.rsvp-btn{
+  color:#fff;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #3E2640;
