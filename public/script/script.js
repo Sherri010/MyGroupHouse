@@ -21,6 +21,7 @@ $(document).ready(function(){
 
   // rsvp
   $('.rsvp-btn').on('click',function(event){
+
      event.preventDefault();
      var eventToRsvp = $(event.target);
      var address = eventToRsvp.attr('href');
@@ -32,5 +33,6 @@ $(document).ready(function(){
        }
      });
    });
+
 
 });
