@@ -1,11 +1,17 @@
-<div class="wrapper small">
-<h3> Sign Up </h3>
-<form method="post" action="/users/signup">
-  <input type="text" name="name" placeholder="name"><br>
-  <input type="text" name="username"  placeholder="username"><br>
-  <input type="email" name="email" placeholder="email"><br>
-  <input type="password" name="password" placeholder="password"><br>
-  <input type="password" name="password2" placeholder="confirm password"><br>
-  <input type="submit">
-</form>
+<div class="login-page">
+  <div class="wrapper small">
+  <h3 class="logo"> ShareIn </h3>
+  <h5> Sign Up </h5>
+  <form method="post" action="/users/signup">
+    <input type="text" name="name" placeholder="name"><br>
+    <input type="text" name="username"  placeholder="username"><br>
+    <input type="email" name="email" placeholder="email"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <input type="password" name="password2" placeholder="confirm password"><br>
+    <input type="submit" value="Join" class="btn1">
+  </form>
+  <div style="margin-top:50px;">
+    <a class="option" href="/users/login"> Login </a>
+  </div>
+  </div>
 </div>

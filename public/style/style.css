@@ -1,16 +1,67 @@
+body{
+  background: #D4D6D8;
+  font-family: 'Dosis', sans-serif;
+  font-size:18px;
+}
+nav {
+  background: #3E2640;
+  -webkit-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+}
+
+hr{
+   border:none;
+   border-top: 3px solid #827287;
+   width:80%;
+}
+.btn1 {
+  background: #833B3F;
+  color:#fff;
+  padding:5px 20px;
+}
+.brand-logo{
+  margin-left:10px;
+}
+.logo{
+  color:#3E2640;
+  font-weight: bolder;
+  padding:0px 20px 100px 20px;;
+}
 .wrapper{
   text-align: center;
   margin:0 auto;
-  padding:200px;
+  padding:70px;
+  padding-top:70px;
 }
 .small{
-  width:40%;
+  width:30%;
+  background: #E7DDD8;
+  border-radius: 3px;
+  -webkit-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
+  box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
 }
-
+.login-page{
+  width:100%;
+  height:100vh;
+  background: url('../sharein.png') no-repeat;
+  background-size:cover;
+  background-position: center;
+  padding:100px;
+}
+.option{
+  padding:50px;
+}
 .m3 {
   min-height: 100px;
 }
 
+.fa-calendar-plus-o,.fa-calendar{
+  color:#3E2640;
+  font-size:30px;
+
+}
 #modal1{
   width:500px;
 }
@@ -18,4 +69,59 @@
 .edit-div{
    width:30%;
    margin: 0 auto;
+}
+.main-cntrl{
+  height:200px;
+  background: #E7DDD8;
+}
+.main-cntrl ul {
+  width:300px;
+  display: block;
+  margin:0 auto;
+}
+.main-cntrl ul li {
+  font-size:40px;
+  display: inline-block;
+  text-align: center;
+  margin:0 auto;
+  padding-left:50px;
+  padding-right:25px;
+  padding-top:30px;
+}
+.main-board{
+  text-align: center;
+  color:#3E2640;
+  font-size:35px;
+  margin-top:0px;
+  padding-top:30px;
+}
+.card {
+  background: #CEB5D6;
+  padding:40px;
+}
+.event-info{
+  font-size:0.8em;
+  padding:5px;
+}
+.rsvp-btn{
+  color:#fff;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #3E2640;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #3E2640;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #3E2640;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #3E2640;
+}
+
+
+@media (max-width: 500px) {
+  .small {
+    width:80%;
+  }
 }
