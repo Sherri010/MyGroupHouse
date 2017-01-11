@@ -1,1 +1,41 @@
-<h3> view event <h3>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo">ShareIn</a>
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		<ul class="right hide-on-med-and-down">
+      <li><a href="/users/profiles/{{currentUser}}"> My Board </a></li>
+      <li><a href="/users/logout">Logout</a></li>
+	 </ul>
+		<ul class="side-nav" id="mobile-demo">
+			<li><a href="/users/profiles/{{currentUser}}"> Your Board </a></li>
+			<li><a href="/users/logout">Logout</a></li>
+		</ul>
+	</div>
+</nav>
+<div class="main-cntrl">
+  <h4 class="main-board"> Welcome to Event Board </h4>
+<ul>
+   <li>
+       <a alt="plan new event" href="#modal1">
+         <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+       </a>
+  </li>
+   <li>
+     <a alt="view all events" href="/event-board">
+         <i class="fa fa-calendar" aria-hidden="true"></i>
+     </a>
+   </li>
+   <li>
+     <a alt="view all events" href="/users/profiles/{{currentUser}}">
+         <i class="fa fa-smile-o" aria-hidden="true"></i>
+     </a>
+   </li>
+</ul>
+</div>
+<div class="container">
+<h3>{{event.name}} <h3>
+  <h5>{{event.organizer_name}}
+    <p>{{event.disc}}</p>
+    <p>{{formatDate}}</p>
+</div>
