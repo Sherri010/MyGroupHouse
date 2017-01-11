@@ -41,6 +41,14 @@ router.post('/events',ensureAuthenticated,function(req,res){
 
 });
 
+router.get('/event/:id',ensureAuthenticated,function(req,res){
+  var eventToFind = req.params.id;
+	Event.findOne({_id:eventToFind},function(err,foundEvent){
+		var date = foundEvent.date;
+		var formatedDate = formatDate(date);
+		res.render('event',{event:foundEvent,formatDate:formatedDate});
+	});
+});
 router.get('/events/:id/edit',ensureAuthenticated,function(req,res){
 	var eventToEdit = req.params.id;
 	Event.findOne({ _id: eventToEdit }, function(err, foundEvent) {

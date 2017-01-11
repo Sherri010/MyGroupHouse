@@ -1,3 +1,4 @@
+
 <nav>
 	<div class="nav-wrapper">
 		<a href="#!" class="brand-logo">ShareIn</a>
@@ -43,6 +44,9 @@
          <div class="card">
            <h5> {{this.name}}</h5>
            <p> About:{{this.disc}}</p>
+           <a href="/event/{{this._id}}">view more </a>
+             <p> By: {{this.organizer_name}}</p>
+             <p> people going: {{this.rsvp.length}}</p>
            <hr>
           <div class="event-info">
              <p><b>By:</b> {{this.organizer_name}}</p>
