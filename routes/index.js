@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 var Event = require('../models/event');
-
+var User  = require('../models/user');
 // Get Homepage
 router.get('/',  function(req, res){
 	res.render('index');
@@ -54,7 +54,7 @@ router.get('/events/:id/edit',ensureAuthenticated,function(req,res){
 	Event.findOne({ _id: eventToEdit }, function(err, foundEvent) {
 		 var date = foundEvent.date;
 	   var formatedDate = formatDate(date);
-	   res.render('edit',{event:foundEvent,formatDate:formatedDate});
+	   res.render('edit',{event:foundEvent,formatDate:formatedDate,currentUser:req.user._id});
 	});
 });
 
@@ -75,10 +75,15 @@ router.post('/events/:id',ensureAuthenticated, function(req, res){
 
 router.post('/events/:id/rsvp',ensureAuthenticated,function(req,res){
 	 var eventToUpdate = req.params.id;
-	 console.log("rsvping to ", eventToUpdate)
+   var eventToGo;
 	 Event.findOne({ _id: eventToUpdate }, function(err, foundEvent) {
+		 eventToGo = foundEvent;
 		 if(foundEvent.rsvp.indexOf(req.user._id) == -1){
-		   foundEvent.rsvp.push(req.user._id)
+		    foundEvent.rsvp.push(req.user._id);
+			  User.findOne({_id:req.user._id},function(err,foundUser){
+				  foundUser.rsvps.push(eventToGo);
+					foundUser.save();
+			 });
 			 foundEvent.save(function(err, savedEvent) {
 						res.json(savedEvent.rsvp.length)
 				});

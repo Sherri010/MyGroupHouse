@@ -1,11 +1,39 @@
-<a class="btn" href="/users/logout">Logout</a>
-<a class="btn" href="#modal1">Create new event</a>
 
-<div class="chip" style="float:right;margin-left:20px;">
-  <a href="/users/profiles/{{currentUser}}">  {{name}} </a>
- </div>
-
-<h4> Event Board </h4>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo">ShareIn</a>
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		<ul class="right hide-on-med-and-down">
+      <li><a href="/users/profiles/{{currentUser}}"> My Board </a></li>
+      <li><a href="/users/logout">Logout</a></li>
+	 </ul>
+		<ul class="side-nav" id="mobile-demo">
+			<li><a href="/users/profiles/{{currentUser}}"> Your Board </a></li>
+			<li><a href="/users/logout">Logout</a></li>
+		</ul>
+	</div>
+</nav>
+<div class="main-cntrl">
+  <h4 class="main-board"> Welcome to Event Board </h4>
+<ul>
+   <li>
+       <a alt="plan new event" href="#modal1">
+         <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+       </a>
+  </li>
+   <li>
+     <a alt="view all events" href="/event-board">
+         <i class="fa fa-calendar" aria-hidden="true"></i>
+     </a>
+   </li>
+   <li>
+     <a alt="view all events" href="/users/profiles/{{currentUser}}">
+         <i class="fa fa-smile-o" aria-hidden="true"></i>
+     </a>
+   </li>
+</ul>
+</div>
+<div class="container">
 {{#unless events.length}}
   No Events planned...
  {{/unless}}
@@ -13,22 +41,26 @@
   <div class="row">
     {{#each events}}
        <div class="col s12 m3">
-         <div class="card grey">
-           <h5>Event: {{this.name}}</h5>
+         <div class="card">
+           <h5> {{this.name}}</h5>
            <p> About:{{this.disc}}</p>
            <a href="/event/{{this._id}}">view more </a>
            <div class="chip">
              {{this.organizer_name}}
              <p> people going: {{this.rsvp.length}}</p>
+           <hr>
+          <div class="event-info">
+             <p><b>By:</b> {{this.organizer_name}}</p>
+             <p><b>RSVPs:</b> {{this.rsvp.length}}</p>
              {{{showLinks this ../currentUser}}}
            </div>
          </div>
        </div>
     {{/each}}
-   </div>
    {{/if}}
-
-   <!-- Modal Structure -->
+ </div>
+</div>
+   <!-- create Modal -->
    <div id="modal1" class="modal modal-fixed-footer">
     <form method="post" action="/events">
      <div class="modal-content">
