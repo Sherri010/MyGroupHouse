@@ -15,10 +15,22 @@
 <div class="main-cntrl">
   <h4 class="main-board"> Welcome to Event Board </h4>
 <ul>
-   <li><a alt="plan new event" href="#modal1"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i></a></li>
-   <li><a alt="view all events" href="#"><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+   <li>
+       <a alt="plan new event" href="#modal1">
+         <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+       </a>
+  </li>
+   <li>
+     <a alt="view all events" href="/event-board">
+         <i class="fa fa-calendar" aria-hidden="true"></i>
+     </a>
+   </li>
+   <li>
+     <a alt="view all events" href="/users/profiles/{{currentUser}}">
+         <i class="fa fa-smile-o" aria-hidden="true"></i>
+     </a>
+   </li>
 </ul>
-
 </div>
 <div class="container">
 {{#unless events.length}}

@@ -29,7 +29,8 @@ $(document).ready(function(){
        type:"POST",
        url:address,
        success:function(data){
-         eventToRsvp.prev().html("<b>RSVPs: </b>"+data)
+         eventToRsvp.prev().html("<b>RSVPs: </b>"+data);
+         eventToRsvp.attr('class',eventToRsvp+" rsvp-btn-selected");
        }
      });
    });
