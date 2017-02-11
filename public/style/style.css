@@ -1,10 +1,9 @@
 body{
-  background: #D4D6D8;
   font-family: 'Dosis', sans-serif;
   font-size:18px;
 }
 nav {
-  background: #3E2640;
+  background: #032A57;
   -webkit-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
 -moz-box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
 box-shadow: 3px -2px 67px -12px rgba(0,0,0,0.75);
@@ -17,6 +16,10 @@ hr{
 }
 input:-webkit-autofill,textarea:-webkit-autofill, select:-webkit-autofill{
   background: none;
+}
+.container2{
+  width:85%;
+  margin-top:40px;
 }
 .btn1 {
   background: #833B3F;
@@ -75,7 +78,7 @@ input:-webkit-autofill,textarea:-webkit-autofill, select:-webkit-autofill{
 }
 .main-cntrl{
   height:200px;
-  background: #E7DDD8;
+  background: #B2C798;
 }
 .main-cntrl ul {
   width:500px;
@@ -99,7 +102,8 @@ input:-webkit-autofill,textarea:-webkit-autofill, select:-webkit-autofill{
   padding-top:30px;
 }
 .card {
-  background: #CEB5D6;
+  border:1px solid #2EA69D;
+  border-rad: 5px;
   padding:40px;
 }
 .event-info{
