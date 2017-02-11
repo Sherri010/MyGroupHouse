@@ -20,6 +20,7 @@
     "express-validator": "*",
     "mongodb": "*",
     "mongoose": "*",
+    "nodemailer": "^3.0.2",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*"
